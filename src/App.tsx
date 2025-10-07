@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Code2, Database, Globe, Mail, Phone, MapPin, ExternalLink, Github, Linkedin, Download, Menu, X, CheckCircle, Star, Users, Briefcase, GraduationCap } from 'lucide-react';
+import { TechLogo } from './components/TechLogos';
+import { generateResume } from './utils/resumeGenerator';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -266,7 +268,10 @@ function App() {
                   </div>
                 </div>
                 
-                <button className="w-full bg-white text-blue-600 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 flex items-center justify-center space-x-2">
+                <button 
+                  onClick={generateResume}
+                  className="w-full bg-white text-blue-600 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 flex items-center justify-center space-x-2"
+                >
                   <Download size={20} />
                   <span>Download Resume</span>
                 </button>
@@ -310,10 +315,13 @@ function App() {
           {/* Technology Icons */}
           <div className="mt-16">
             <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Technologies I Work With</h3>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
               {['React', 'JavaScript', 'Node.js', 'Python', 'MongoDB', 'MySQL', 'Git', 'Tailwind CSS'].map((tech) => (
-                <div key={tech} className="bg-white px-4 py-2 rounded-full shadow-sm border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-200">
-                  <span className="text-gray-700 font-medium">{tech}</span>
+                <div key={tech} className="bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:border-blue-300 hover:shadow-lg hover:scale-105 transition-all duration-300 flex flex-col items-center space-y-2 group">
+                  <div className="w-12 h-12 flex items-center justify-center">
+                    <TechLogo name={tech} className="w-10 h-10 group-hover:scale-110 transition-transform duration-200" />
+                  </div>
+                  <span className="text-gray-700 font-medium text-sm text-center">{tech}</span>
                 </div>
               ))}
             </div>
