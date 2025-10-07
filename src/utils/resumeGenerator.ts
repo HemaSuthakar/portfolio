@@ -9,70 +9,92 @@ export const generateResume = () => {
   const primaryColor = [59, 130, 246]; // Blue
   const darkColor = [31, 41, 55]; // Dark gray
   const lightColor = [107, 114, 128]; // Light gray
+  const accentColor = [45, 55, 72]; // Dark blue-gray
   
   // Header Section
   pdf.setFillColor(...primaryColor);
-  pdf.rect(0, 0, pageWidth, 60, 'F');
+  pdf.rect(0, 0, pageWidth, 50, 'F');
   
   // Name
   pdf.setTextColor(255, 255, 255);
-  pdf.setFontSize(28);
+  pdf.setFontSize(32);
   pdf.setFont('helvetica', 'bold');
-  pdf.text('HEMA SUTHAKAR', 20, 25);
+  pdf.text('HEMA S', 20, 25);
   
-  // Title
-  pdf.setFontSize(16);
-  pdf.setFont('helvetica', 'normal');
-  pdf.text('Full-Stack Developer', 20, 35);
+  // Underline
+  pdf.setLineWidth(2);
+  pdf.setDrawColor(255, 255, 255);
+  pdf.line(20, 30, 80, 30);
   
-  // Contact Info
+  // Contact Info Header
   pdf.setFontSize(10);
-  pdf.text('📧 hemasuthakar1226@gmail.com', 20, 45);
-  pdf.text('📱 +91 94432 06336', 20, 52);
-  pdf.text('📍 Attur, Salem, Tamil Nadu', 120, 45);
-  pdf.text('🔗 linkedin.com/in/hemafromit', 120, 52);
+  pdf.setFont('helvetica', 'normal');
+  pdf.text('📧 hemasuthakar1226@gmail.com', 20, 40);
+  pdf.text('📱 +919443206336', 120, 40);
+  pdf.text('📍 Attur, Salem, Tamil Nadu', 20, 46);
+  pdf.text('🔗 www.linkedin.com/in/hemafromit', 120, 46);
   
-  let yPosition = 80;
+  let yPosition = 65;
   
-  // Professional Summary
+  // Career Objective
   pdf.setTextColor(...darkColor);
-  pdf.setFontSize(16);
+  pdf.setFontSize(14);
   pdf.setFont('helvetica', 'bold');
-  pdf.text('PROFESSIONAL SUMMARY', 20, yPosition);
+  pdf.text('CAREER OBJECTIVE', 20, yPosition);
+  
+  // Underline for sections
+  pdf.setLineWidth(1);
+  pdf.setDrawColor(...accentColor);
+  pdf.line(20, yPosition + 2, 90, yPosition + 2);
   
   yPosition += 10;
   pdf.setFontSize(10);
   pdf.setFont('helvetica', 'normal');
-  const summary = 'Results-driven full-stack developer with 2+ years of experience building scalable web applications. Combines technical excellence with strategic thinking to deliver solutions that drive measurable business results. Experienced in modern web technologies and passionate about solving real-world problems.';
-  const summaryLines = pdf.splitTextToSize(summary, pageWidth - 40);
-  pdf.text(summaryLines, 20, yPosition);
-  yPosition += summaryLines.length * 5 + 10;
+  const objective = 'As a Fresher in the IT field, I am eager to improve myself with additional skills and develop my Leadership Skills by working with a Collaborative Team that supports my Professional Development and helps me to reach the Goal.';
+  const objectiveLines = pdf.splitTextToSize(objective, pageWidth - 40);
+  pdf.text(objectiveLines, 20, yPosition);
+  yPosition += objectiveLines.length * 5 + 10;
   
   // Education
-  pdf.setFontSize(16);
+  pdf.setFontSize(14);
   pdf.setFont('helvetica', 'bold');
   pdf.text('EDUCATION', 20, yPosition);
+  pdf.line(20, yPosition + 2, 70, yPosition + 2);
   yPosition += 10;
   
-  pdf.setFontSize(12);
-  pdf.text('Bachelor of Information Technology', 20, yPosition);
+  // College Education
+  pdf.setFontSize(11);
+  pdf.setFont('helvetica', 'bold');
+  pdf.text('2023 - 2027', 20, yPosition);
+  pdf.text('M KUMARASAMY COLLEGE OF ENGINEERING', 20, yPosition + 6);
   pdf.setFontSize(10);
   pdf.setFont('helvetica', 'normal');
-  pdf.text('M Kumarasamy College of Engineering | 2023 - 2027', 20, yPosition + 7);
+  pdf.text('Information Technology', 20, yPosition + 12);
   yPosition += 20;
   
-  // Technical Skills
-  pdf.setFontSize(16);
+  // School Education
+  pdf.setFontSize(11);
   pdf.setFont('helvetica', 'bold');
-  pdf.text('TECHNICAL SKILLS', 20, yPosition);
+  pdf.text('2022 - 2023', 20, yPosition);
+  pdf.text('SARASWATHI MATRIC HIGHER SECONDARY SCHOOL', 20, yPosition + 6);
+  pdf.setFontSize(10);
+  pdf.setFont('helvetica', 'normal');
+  pdf.text('HSC - Score: 88.88%', 20, yPosition + 12);
+  yPosition += 20;
+  
+  // Skills
+  pdf.setFontSize(14);
+  pdf.setFont('helvetica', 'bold');
+  pdf.text('SKILLS', 20, yPosition);
+  pdf.line(20, yPosition + 2, 50, yPosition + 2);
   yPosition += 10;
   
   const skills = [
-    'Frontend: HTML, CSS, JavaScript, React, Tailwind CSS',
-    'Backend: Node.js, Express, Python, Django',
-    'Database: MongoDB, MySQL',
-    'Tools: Git, GitHub, VS Code',
-    'Programming: C, Python, JavaScript, TypeScript'
+    'Project Management',
+    'Public Relations', 
+    'Teamwork Time Management',
+    'Leadership Effective Communication',
+    'Critical Thinking'
   ];
   
   pdf.setFontSize(10);
@@ -83,73 +105,107 @@ export const generateResume = () => {
   });
   yPosition += 5;
   
-  // Projects
-  pdf.setFontSize(16);
+  // Languages
+  pdf.setFontSize(14);
   pdf.setFont('helvetica', 'bold');
-  pdf.text('KEY PROJECTS', 20, yPosition);
+  pdf.text('LANGUAGES', 20, yPosition);
+  pdf.line(20, yPosition + 2, 70, yPosition + 2);
+  yPosition += 10;
+  
+  pdf.setFontSize(10);
+  pdf.setFont('helvetica', 'normal');
+  pdf.text('• English (Fluent)', 25, yPosition);
+  pdf.text('• Tamil (Fluent)', 25, yPosition + 6);
+  yPosition += 18;
+  
+  // Projects Done
+  pdf.setFontSize(14);
+  pdf.setFont('helvetica', 'bold');
+  pdf.text('PROJECT DONE', 20, yPosition);
+  pdf.line(20, yPosition + 2, 80, yPosition + 2);
   yPosition += 10;
   
   // Project 1
-  pdf.setFontSize(12);
+  pdf.setFontSize(11);
   pdf.setFont('helvetica', 'bold');
-  pdf.text('Airline Reservation System', 20, yPosition);
+  pdf.text('Title: Airline Reservation System', 20, yPosition);
   pdf.setFontSize(10);
   pdf.setFont('helvetica', 'normal');
-  yPosition += 7;
-  const project1Desc = 'Integrated passenger processing system with seat allocation and ticket cancellation features. Built using C programming with structured approach for efficient data management.';
+  pdf.text('Duration: 2 Months', 20, yPosition + 6);
+  yPosition += 12;
+  const project1Desc = 'Description: This System is an integrated Passenger Processing System, including seat allocation and cancellation of the Booked Ticket.';
   const project1Lines = pdf.splitTextToSize(project1Desc, pageWidth - 40);
   pdf.text(project1Lines, 20, yPosition);
-  yPosition += project1Lines.length * 5 + 3;
-  pdf.text('Technologies: C Programming, Data Structures, File Handling', 20, yPosition);
-  yPosition += 10;
+  yPosition += project1Lines.length * 5 + 8;
   
   // Project 2
-  pdf.setFontSize(12);
+  pdf.setFontSize(11);
   pdf.setFont('helvetica', 'bold');
-  pdf.text('Music Player Application', 20, yPosition);
+  pdf.text('Title: Music Player using C', 20, yPosition);
   pdf.setFontSize(10);
   pdf.setFont('helvetica', 'normal');
-  yPosition += 7;
-  const project2Desc = 'Command-line music player using advanced data structures for unlimited song access and comprehensive playlist management functionality.';
+  pdf.text('Duration: 3 Months', 20, yPosition + 6);
+  yPosition += 12;
+  const project2Desc = 'Description: This Project focus providing Platform for Music Lovers with the use of Data Structure that enables user to access the Songs unlimited.';
   const project2Lines = pdf.splitTextToSize(project2Desc, pageWidth - 40);
   pdf.text(project2Lines, 20, yPosition);
-  yPosition += project2Lines.length * 5 + 3;
-  pdf.text('Technologies: C Programming, Linked Lists, File I/O', 20, yPosition);
+  yPosition += project2Lines.length * 5 + 10;
+  
+  // Check if we need a new page
+  if (yPosition > pageHeight - 80) {
+    pdf.addPage();
+    yPosition = 20;
+  }
+  
+  // Certifications
+  pdf.setFontSize(14);
+  pdf.setFont('helvetica', 'bold');
+  pdf.text('CERTIFICATIONS', 20, yPosition);
+  pdf.line(20, yPosition + 2, 90, yPosition + 2);
   yPosition += 10;
   
-  // Experience
-  pdf.setFontSize(16);
-  pdf.setFont('helvetica', 'bold');
-  pdf.text('EXPERIENCE', 20, yPosition);
-  yPosition += 10;
-  
-  pdf.setFontSize(12);
-  pdf.setFont('helvetica', 'bold');
-  pdf.text('Academic Projects & Freelance Work', 20, yPosition);
-  pdf.setFontSize(10);
-  pdf.setFont('helvetica', 'normal');
-  pdf.text('2023 - Present', 20, yPosition + 7);
-  yPosition += 15;
-  
-  const achievements = [
-    'Built and deployed web applications for local businesses',
-    'Developed RESTful APIs and responsive frontends using React and Node.js',
-    'Created database schemas and optimized queries for performance',
-    'Collaborated with clients to gather requirements and deliver solutions'
+  const certifications = [
+    'Fundamentals of Digital Marketing by United Latino Student Association.',
+    'Certified Google Analyst for Beginners by Google Analytics Academy.',
+    'Scored 71% in Introduction to Industry 4.0 and Industrial Internet of Things through NPTEL associated with IIT Kharagpur.'
   ];
   
-  achievements.forEach(achievement => {
-    pdf.text(`• ${achievement}`, 25, yPosition);
-    yPosition += 6;
+  pdf.setFontSize(10);
+  pdf.setFont('helvetica', 'normal');
+  certifications.forEach(cert => {
+    const certLines = pdf.splitTextToSize(`• ${cert}`, pageWidth - 40);
+    pdf.text(certLines, 25, yPosition);
+    yPosition += certLines.length * 5 + 3;
+  });
+  yPosition += 5;
+  
+  // Co-Curricular Activities
+  pdf.setFontSize(14);
+  pdf.setFont('helvetica', 'bold');
+  pdf.text('CO-CURRICULAR ACTIVITIES', 20, yPosition);
+  pdf.line(20, yPosition + 2, 120, yPosition + 2);
+  yPosition += 10;
+  
+  const activities = [
+    'Participated in National Level Srinivasa Ramanujan Mathematical Competition.',
+    'Practicing the Coding Concepts in Leetcode, Codetantra and HackerRank.'
+  ];
+  
+  pdf.setFontSize(10);
+  pdf.setFont('helvetica', 'normal');
+  activities.forEach(activity => {
+    const activityLines = pdf.splitTextToSize(`• ${activity}`, pageWidth - 40);
+    pdf.text(activityLines, 25, yPosition);
+    yPosition += activityLines.length * 5 + 3;
   });
   
   // Footer
   pdf.setFillColor(...primaryColor);
-  pdf.rect(0, pageHeight - 20, pageWidth, 20, 'F');
+  pdf.rect(0, pageHeight - 15, pageWidth, 15, 'F');
   pdf.setTextColor(255, 255, 255);
   pdf.setFontSize(8);
-  pdf.text('GitHub: github.com/HemaSuthakar | Portfolio: Professional Full-Stack Developer', 20, pageHeight - 10);
+  pdf.text('GitHub: github.com/HemaSuthakar | Portfolio: Professional Full-Stack Developer', 20, pageHeight - 7);
   
   // Save the PDF
-  pdf.save('Hema_Suthakar_Resume.pdf');
+  pdf.save('Hema_S_Resume.pdf');
 };
