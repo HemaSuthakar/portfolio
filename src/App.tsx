@@ -36,6 +36,42 @@ function App() {
     setIsMenuOpen(false);
   };
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Create email content
+    const subject = encodeURIComponent(`Portfolio Contact: ${formData.subject}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Subject: ${formData.subject}\n\n` +
+      `Message:\n${formData.message}\n\n` +
+      `---\nSent from your portfolio website`
+    );
+    
+    // Open email client with pre-filled content
+    window.location.href = `mailto:hemasuthakar1226@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    });
+    
+    // Show success message (optional)
+    alert('Email client opened! Please send the email to complete your message.');
+  };
+
   const skills = [
     { name: 'HTML / CSS / JavaScript', level: 90, category: 'Frontend' },
     { name: 'React / Tailwind CSS', level: 85, category: 'Frontend' },
@@ -481,20 +517,20 @@ function App() {
               </div>
 
               <div className="flex space-x-4 pt-6">
-                <a href="#" className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors duration-200">
+                <a href="https://linkedin.com/in/hemafromit" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors duration-200">
                   <Linkedin size={24} />
                 </a>
-                <a href="#" className="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition-colors duration-200">
+                <a href="https://github.com/HemaSuthakar" target="_blank" rel="noopener noreferrer" className="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition-colors duration-200">
                   <Github size={24} />
                 </a>
-                <a href="#" className="bg-blue-500 text-white p-3 rounded-full hover:bg-blue-600 transition-colors duration-200">
+                <a href="mailto:hemasuthakar1226@gmail.com" className="bg-blue-500 text-white p-3 rounded-full hover:bg-blue-600 transition-colors duration-200">
                   <Mail size={24} />
                 </a>
               </div>
             </div>
 
             <div className="bg-gray-50 p-8 rounded-xl">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
                     Full Name
@@ -502,6 +538,10 @@ function App() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                     placeholder="Your full name"
                   />
@@ -513,6 +553,10 @@ function App() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                     placeholder="your.email@company.com"
                   />
@@ -524,6 +568,10 @@ function App() {
                   <input
                     type="text"
                     id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                     placeholder="Project inquiry"
                   />
@@ -534,6 +582,10 @@ function App() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
                     rows={6}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
                     placeholder="Tell me about your project..."
