@@ -145,12 +145,12 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-900">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 border-b border-gray-200">
+      <nav className="fixed top-0 left-0 right-0 bg-gray-900/90 backdrop-blur-sm z-50 border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="text-2xl font-bold text-gray-900">
+            <div className="text-2xl font-bold text-white">
               Hema<span className="text-blue-600">Dev</span>
             </div>
             
@@ -163,7 +163,7 @@ function App() {
                   className={`capitalize transition-colors duration-200 ${
                     activeSection === section 
                       ? 'text-blue-600 font-semibold' 
-                      : 'text-gray-700 hover:text-blue-600'
+                      : 'text-gray-300 hover:text-blue-400'
                   }`}
                 >
                   {section}
@@ -174,6 +174,7 @@ function App() {
             {/* Mobile menu button */}
             <button
               className="md:hidden"
+              className="md:hidden text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -182,12 +183,12 @@ function App() {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-gray-200">
+            <div className="md:hidden py-4 border-t border-gray-700">
               {['home', 'about', 'skills', 'projects', 'experience', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className="block w-full text-left py-2 capitalize text-gray-700 hover:text-blue-600"
+                  className="block w-full text-left py-2 capitalize text-gray-300 hover:text-blue-400"
                 >
                   {section}
                 </button>
@@ -198,15 +199,15 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 pt-20">
+      <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
               Full-Stack Developer
               <br />
               <span className="text-blue-600">Who Delivers Results</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
               I create scalable web applications that drive business growth. 
               From concept to deployment, I turn your ideas into powerful digital solutions.
             </p>
@@ -226,7 +227,7 @@ function App() {
               </button>
             </div>
 
-            <div className="flex justify-center space-x-8 text-gray-600">
+            <div className="flex justify-center space-x-8 text-gray-300">
               <div className="flex items-center space-x-2">
                 <CheckCircle className="text-emerald-500" size={20} />
                 <span>2+ Years Experience</span>
@@ -243,45 +244,45 @@ function App() {
           </div>
           
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <ChevronDown size={32} className="text-gray-400" />
+            <ChevronDown size={32} className="text-gray-500" />
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-20 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">About Me</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-gray-900">
+              <h3 className="text-2xl font-bold text-white">
                 Passionate Developer with a Business Mindset
               </h3>
-              <p className="text-gray-600 leading-relaxed text-lg">
+              <p className="text-gray-300 leading-relaxed text-lg">
                 I'm a results-driven full-stack developer who understands that great code 
                 means nothing without business impact. With 2+ years of experience, I've built 
                 academic and freelance projects that solve real-world problems and deliver value.
               </p>
-              <p className="text-gray-600 leading-relaxed text-lg">
+              <p className="text-gray-300 leading-relaxed text-lg">
                 My approach combines technical excellence with strategic thinking. I don't just 
                 write code—I solve problems, optimize performance, and create solutions that 
                 drive measurable business results.
               </p>
               
               <div className="grid sm:grid-cols-2 gap-6 mt-8">
-                <div className="bg-blue-50 p-6 rounded-lg">
+                <div className="bg-gray-700 p-6 rounded-lg">
                   <Code2 className="text-blue-600 mb-2" size={32} />
-                  <h4 className="font-semibold text-gray-900 mb-2">Frontend Expert</h4>
-                  <p className="text-gray-600">HTML, CSS, JavaScript, React</p>
+                  <h4 className="font-semibold text-white mb-2">Frontend Expert</h4>
+                  <p className="text-gray-300">HTML, CSS, JavaScript, React</p>
                 </div>
-                <div className="bg-emerald-50 p-6 rounded-lg">
+                <div className="bg-gray-700 p-6 rounded-lg">
                   <Database className="text-emerald-600 mb-2" size={32} />
-                  <h4 className="font-semibold text-gray-900 mb-2">Backend Specialist</h4>
-                  <p className="text-gray-600">Node.js, Python, MongoDB, MySQL</p>
+                  <h4 className="font-semibold text-white mb-2">Backend Specialist</h4>
+                  <p className="text-gray-300">Node.js, Python, MongoDB, MySQL</p>
                 </div>
               </div>
             </div>
@@ -324,27 +325,28 @@ function App() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-gray-50">
+      <section id="skills" className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Technical Skills</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Technical Skills</h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Proficient in modern technologies with a focus on performance, scalability, and user experience
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {skills.map((skill, index) => (
-              <div key={skill.name} className="bg-white p-6 rounded-lg shadow-sm">
+              <div key={skill.name} className="bg-gray-800 p-6 rounded-lg shadow-sm">
                 <div className="flex justify-between items-center mb-3">
-                  <h3 className="font-semibold text-gray-900">{skill.name}</h3>
+                  <h3 className="font-semibold text-white">{skill.name}</h3>
                   <div className="flex items-center space-x-2">
-                    <span className="text-sm text-gray-500">{skill.category}</span>
+                    <span className="text-sm text-gray-400">{skill.category}</span>
                     <span className="text-sm font-semibold text-blue-600">{skill.level}%</span>
                   </div>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="w-full bg-gray-700 rounded-full h-2">
                   <div 
                     className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full transition-all duration-1000 ease-out"
                     style={{ width: `${skill.level}%` }}
@@ -356,14 +358,14 @@ function App() {
 
           {/* Technology Icons */}
           <div className="mt-16">
-            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Technologies I Work With</h3>
+            <h3 className="text-2xl font-bold text-white text-center mb-8">Technologies I Work With</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
               {['React', 'JavaScript', 'Node.js', 'Python', 'MongoDB', 'MySQL', 'Git', 'Tailwind CSS'].map((tech) => (
-                <div key={tech} className="bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:border-blue-300 hover:shadow-lg hover:scale-105 transition-all duration-300 flex flex-col items-center space-y-2 group">
+                <div key={tech} className="bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-700 hover:border-blue-500 hover:shadow-lg hover:scale-105 transition-all duration-300 flex flex-col items-center space-y-2 group">
                   <div className="w-12 h-12 flex items-center justify-center">
                     <TechLogo name={tech} className="w-10 h-10 group-hover:scale-110 transition-transform duration-200" />
                   </div>
-                  <span className="text-gray-700 font-medium text-sm text-center">{tech}</span>
+                  <span className="text-gray-300 font-medium text-sm text-center">{tech}</span>
                 </div>
               ))}
             </div>
@@ -372,19 +374,19 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-white">
+      <section id="projects" className="py-20 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Featured Projects</h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Real-world applications that solve business problems and deliver measurable results
             </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <div key={project.title} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div key={project.title} className="bg-gray-700 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div className="relative overflow-hidden">
                   <img 
                     src={project.image} 
@@ -402,8 +404,8 @@ function App() {
                 </div>
                 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
+                  <p className="text-gray-300 mb-4 leading-relaxed">{project.description}</p>
                   
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech) => (
@@ -417,7 +419,7 @@ function App() {
                     {project.highlights.map((highlight) => (
                       <div key={highlight} className="flex items-center space-x-2">
                         <CheckCircle className="text-emerald-500 flex-shrink-0" size={16} />
-                        <span className="text-sm text-gray-600">{highlight}</span>
+                        <span className="text-sm text-gray-300">{highlight}</span>
                       </div>
                     ))}
                   </div>
@@ -436,22 +438,22 @@ function App() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 bg-gray-50">
+      <section id="experience" className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Work Experience</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Work Experience</h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Proven track record of delivering high-impact solutions for growing companies
             </p>
           </div>
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <div key={exp.title} className="bg-white rounded-xl shadow-lg p-8">
+              <div key={exp.title} className="bg-gray-800 rounded-xl shadow-lg p-8">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{exp.title}</h3>
+                    <h3 className="text-2xl font-bold text-white mb-2">{exp.title}</h3>
                     <p className="text-lg text-blue-600 font-semibold">{exp.company}</p>
                   </div>
                   <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium">
@@ -459,14 +461,14 @@ function App() {
                   </div>
                 </div>
                 
-                <p className="text-gray-600 text-lg mb-6 leading-relaxed">{exp.description}</p>
+                <p className="text-gray-300 text-lg mb-6 leading-relaxed">{exp.description}</p>
                 
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-gray-900 mb-3">Key Achievements:</h4>
+                  <h4 className="font-semibold text-white mb-3">Key Achievements:</h4>
                   {exp.achievements.map((achievement) => (
                     <div key={achievement} className="flex items-start space-x-3">
                       <CheckCircle className="text-emerald-500 flex-shrink-0 mt-0.5" size={18} />
-                      <span className="text-gray-600">{achievement}</span>
+                      <span className="text-gray-300">{achievement}</span>
                     </div>
                   ))}
                 </div>
@@ -477,12 +479,12 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white">
+      <section id="contact" className="py-20 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Let's Work Together</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Let's Work Together</h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Ready to turn your ideas into reality? Let's discuss your next project
             </p>
           </div>
@@ -490,8 +492,8 @@ function App() {
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Get In Touch</h3>
-                <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                <h3 className="text-2xl font-bold text-white mb-6">Get In Touch</h3>
+                <p className="text-gray-300 text-lg leading-relaxed mb-8">
                   I'm always interested in new opportunities and exciting projects. 
                   Whether you're a startup looking to build your MVP or an enterprise 
                   needing to scale your platform, I'd love to hear from you.
@@ -499,25 +501,25 @@ function App() {
               </div>
 
               <div className="space-y-4">
-                <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-center space-x-4 p-4 bg-gray-700 rounded-lg">
                   <Mail className="text-blue-600" size={24} />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Email</h4>
-                    <p className="text-gray-600">hemasuthakar1226@gmail.com</p>
+                    <h4 className="font-semibold text-white">Email</h4>
+                    <p className="text-gray-300">hemasuthakar1226@gmail.com</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-center space-x-4 p-4 bg-gray-700 rounded-lg">
                   <Phone className="text-blue-600" size={24} />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Phone</h4>
-                    <p className="text-gray-600">+91 94432 06336</p>
+                    <h4 className="font-semibold text-white">Phone</h4>
+                    <p className="text-gray-300">+91 94432 06336</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-center space-x-4 p-4 bg-gray-700 rounded-lg">
                   <MapPin className="text-blue-600" size={24} />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Location</h4>
-                    <p className="text-gray-600">Attur, Salem, Tamil Nadu</p>
+                    <h4 className="font-semibold text-white">Location</h4>
+                    <p className="text-gray-300">Attur, Salem, Tamil Nadu</p>
                   </div>
                 </div>
               </div>
@@ -535,10 +537,10 @@ function App() {
               </div>
             </div>
 
-            <div className="bg-gray-50 p-8 rounded-xl">
+            <div className="bg-gray-700 p-8 rounded-xl">
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
                     Full Name
                   </label>
                   <input
@@ -548,12 +550,12 @@ function App() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-gray-600 bg-gray-800 text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                     placeholder="Your full name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
                     Email Address
                   </label>
                   <input
@@ -563,12 +565,12 @@ function App() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-gray-600 bg-gray-800 text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                     placeholder="your.email@company.com"
                   />
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-semibold text-white mb-2">
                     Subject
                   </label>
                   <input
@@ -578,12 +580,12 @@ function App() {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-gray-600 bg-gray-800 text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                     placeholder="Project inquiry"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label htmlFor="message" className="block text-sm font-semibold text-white mb-2">
                     Message
                   </label>
                   <textarea
@@ -593,7 +595,7 @@ function App() {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 border border-gray-600 bg-gray-800 text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
                     placeholder="Tell me about your project..."
                   ></textarea>
                 </div>
@@ -610,7 +612,7 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-black text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="text-2xl font-bold mb-4">
@@ -631,6 +633,7 @@ function App() {
               </a>
             </div>
             <div className="mt-8 pt-8 border-t border-gray-800 text-gray-400">
+            <div className="mt-8 pt-8 border-t border-gray-700 text-gray-400">
               <p>&copy; 2025 Hema Suthakar. All rights reserved.</p>
             </div>
           </div>
