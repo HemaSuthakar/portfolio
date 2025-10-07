@@ -173,7 +173,6 @@ function App() {
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden"
               className="md:hidden text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
@@ -345,7 +344,6 @@ function App() {
                     <span className="text-sm font-semibold text-blue-600">{skill.level}%</span>
                   </div>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
                 <div className="w-full bg-gray-700 rounded-full h-2">
                   <div 
                     className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full transition-all duration-1000 ease-out"
@@ -632,7 +630,6 @@ function App() {
                 <Mail size={24} />
               </a>
             </div>
-            <div className="mt-8 pt-8 border-t border-gray-800 text-gray-400">
             <div className="mt-8 pt-8 border-t border-gray-700 text-gray-400">
               <p>&copy; 2025 Hema Suthakar. All rights reserved.</p>
             </div>
