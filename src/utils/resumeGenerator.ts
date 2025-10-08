@@ -29,10 +29,10 @@ export const generateResume = () => {
   // Contact Info Header
   pdf.setFontSize(10);
   pdf.setFont('helvetica', 'normal');
-  pdf.text('📧 hemasuthakar1226@gmail.com', 20, 40);
-  pdf.text('📱 +919443206336', 120, 40);
-  pdf.text('📍 Attur, Salem, Tamil Nadu', 20, 46);
-  pdf.text('🔗 www.linkedin.com/in/hemafromit', 120, 46);
+  pdf.text('Email: hemasuthakar1226@gmail.com', 20, 40);
+  pdf.text('Phone: +91 94432 06336', 120, 40);
+  pdf.text('Location: Attur, Salem, Tamil Nadu', 20, 46);
+  pdf.text('LinkedIn: linkedin.com/in/hemafromit', 120, 46);
   
   let yPosition = 65;
   
